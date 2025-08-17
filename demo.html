@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('homee2.png') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+    }
+
+    header {
+      margin-top: 0;
+      margin-bottom: 20px;
+      width: 100%;
+      padding: 20px 0;
+      font-size: 30px;
+      font-weight: bold;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.4);
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      margin-top: 70px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .toggle-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .toggle-link a {
+      color: #007BFF;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .toggle-link a:hover {
+      text-decoration: underline;
+    }
+
+    .form {
+      display: none;
+    }
+
+    .form.active {
+      display: block;
+    }
+
+    .show-password {
+      display: flex;
+      align-items: center;
+      margin: 5px 0 10px 0;
+      font-size: 14px;
+    }
+
+    .show-password input {
+      width: auto;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Welcome to HealthZone</header>
+
+  <div class="container">
+    <!-- Sign Up Form -->
+    <div id="signupForm" class="form active">
+      <h2>Sign Up</h2>
+      <form onsubmit="handleSignup(event);">
+        <label for="signupName">Full Name:</label>
+        <input type="text" id="signupName" name="name" placeholder="Enter your full name" required>
+
+        <label for="signupEmail">Email:</label>
+        <input type="email" id="signupEmail" name="email" placeholder="Enter your email" required>
+
+        <label for="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" name="password" placeholder="Enter your password" required>
+
+        <label class="show-password">
+          <input type="checkbox" onclick="togglePassword('signupPassword')"> Show Password
+        </label>
+
+        <button type="submit">Sign Up</button>
+      </form>
+      <div class="toggle-link">
+        Already registered? <a onclick="showLogin()">Log in</a>
+      </div>
+    </div>
+
+    <!-- Login Form -->
+    <div id="loginForm" class="form">
+      <h2>Log In</h2>
+      <form onsubmit="handleLogin(event);">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+
+        <label class="show-password">
+          <input type="checkbox" onclick="togglePassword('loginPassword')"> Show Password
+        </label>
+
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showLogin() {
+      document.getElementById('signupForm').classList.remove('active');
+      document.getElementById('loginForm').classList.add('active');
+    }
+
+    function showSignup() {
+      document.getElementById('loginForm').classList.remove('active');
+      document.getElementById('signupForm').classList.add('active');
+    }
+
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      input.type = input.type === "password" ? "text" : "password";
+    }
+
+    function handleSignup(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('signupName').value;
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+
+      fetch('signup.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+      })
+      .then(res => res.text())
+      .then(data => {
+        if (data.trim() === "success") {
+          alert("Signup successful! Please log in.");
+          showLogin();
+        } else {
+          alert(data);
+        }
+      })
+      .catch(err => {
+        console.error("Signup error:", err);
+        alert("An error occurred during signup.");
+      });
+    }
+
+    function handleLogin(event) {
+      event.preventDefault();
+
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      fetch('login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+      })
+      .then(res => res.text())
+      .then(data => {
+        if (data.trim() === "success") {
+          window.location.href = "getstarted.html";
+        } else {
+          alert(data);
+        }
+      })
+      .catch(err => {
+        console.error("Login error:", err);
+        alert("An error occurred during login.");
+      });
+    }
+  </script>
+
+</body>
+</html>

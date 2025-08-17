@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DIET AND NUTRITION</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: url('deit.png') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 100px;
+      color: white;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+    }
+
+    .navbar-title {
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: #000;
+    }
+
+    #image-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      justify-items: center;
+      padding: 20px;
+    }
+
+    img {
+      width: 90%;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    @media screen and (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+
+      .navbar-title {
+        align-self: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+      }
+
+      .nav-links a {
+        width: 100%;
+      }
+
+      #image-container {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-title">DIET AND NUTRITION</div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="diet.html">Diet</a>
+      <a href="calci.html">Calculator</a>
+    </div>
+  </div>
+
+  <div id="image-container">
+    <!-- Replace image sources with your actual image paths -->
+    <img src="onion.jpg" alt="Onion">
+    <img src="pumpkin.jpg" alt="Pumpkin">
+    <img src="rice.jpg" alt="Rice">
+    <img src="spinach.jpg" alt="Spinach">
+    <img src="sweet potato.jpg" alt="Sweet Potato">
+    <img src="wheat flour.jpg" alt="Wheat Flour">
+    <img src="peach.jpg" alt="Peach">
+    <img src="dates.jpg" alt="Dates">
+    <img src="coconut.jpg" alt="Coconut">
+    <img src="blackcurrant.jpg" alt="Blackcurrant">
+    <img src="garlic.png" alt="Garlic">
+    <img src="lettuce.png" alt="Lettuce">
+    <img src="avocado.png" alt="Avocado">
+    <img src="acai.png" alt="Acai">
+    <img src="cranberry.png" alt="Cranberry">
+    <img src="green tea.png" alt="Green Tea">
+    <img src="basil.png" alt="Basil">
+    <img src="cacao.png" alt="Cacao">
+    <img src="papaya.png" alt="Papaya">
+    <img src="lemon.png" alt="Lemon">
+    <img src="maize.png" alt="Maize">
+    <img src="grape.png" alt="Grape">
+    <img src="turmeric.png" alt="Turmeric">
+    <img src="apple.png" alt="Apple">
+    <img src="banana.png" alt="Banana">
+    <img src="mango.png" alt="Mango">
+    <img src="beetroot.png" alt="Beetroot">
+    <img src="cucumber.png" alt="Cucumber">
+    <img src="carrot.png" alt="Carrot">
+    <img src="tomato.png" alt="Tomato">
+    <img src="cauliflower.png" alt="Cauliflower">
+    <img src="potato.png" alt="Potato">
+    <img src="cabbage.png" alt="Cabbage">
+    <img src="bell pepper.png" alt="Bell Pepper">
+    <img src="broccoli.png" alt="Broccoli">
+    <img src="pea.png" alt="Pea">
+    <img src="peanut.png" alt="Peanut">
+    <img src="leek.png" alt="Leek">
+    <img src="olive.png" alt="Olive">
+  </div>
+</body>
+</html>

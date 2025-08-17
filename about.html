@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ABOUT</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      padding: 15px 50px;
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+
+    .navbar-title {
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .navbar-spacer {
+      flex: 1;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-left: 20px;
+      padding: 10px 20px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: #000;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 200vw;
+      height: 100%;
+      transition: transform 0.6s ease;
+    }
+
+    .slide {
+      flex: 0 0 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 40px;
+      background-size: cover;
+      background-position: center;
+      text-align: left;
+    }
+
+    .slide1 {
+      background-image: url('home2.png');
+    }
+
+    .slide2 {
+      background-image: url('home2.png');
+    }
+
+    .content-box {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 40px 30px;
+      border-radius: 16px;
+      max-width: 700px;
+      width: 90%;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      position: relative;
+      text-align: left;
+    }
+
+    .content-box h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: #ffd700;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .content-box p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+      margin-bottom: 10px;
+    }
+
+    #arrow-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: rgb(15, 15, 15);
+      border: none;
+      font-size: 30px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      z-index: 20;
+      color: white;
+    }
+
+    #arrow-button:hover {
+      background-color: rgba(255, 255, 255, 1);
+      color: black;
+    }
+
+    @media (max-width: 768px) {
+      .content-box h1 {
+        font-size: 28px;
+      }
+
+      .content-box p {
+        font-size: 16px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .navbar a {
+        margin-left: 0;
+      }
+
+      #arrow-button {
+        font-size: 24px;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <div class="navbar-title">Welcome to HealthZone</div>
+    <div class="navbar-spacer"></div>
+    <a href="home.html">Home</a>
+    <a href="#">About</a>
+    <a href="diet.html">Diet</a>
+    <a href="calci.html">Calculator</a>
+  </div>
+
+  <!-- Slider Container -->
+  <div class="slider-container">
+    <div class="slides" id="slides">
+      <!-- Slide 1 -->
+      <div class="slide slide1">
+        <div class="content-box">
+          <h1>DIET & NUTRITION</h1>
+          <p>Calories are units of energy that fuel every process in the body—from your heartbeat and breathing to the movement of muscles during physical activity. Without enough calories, your body begins to break down tissues to meet energy demands.</p>
+          <p>A well-balanced diet is the foundation of good health. It consists of whole grains, lean protein sources like chicken, fish, or legumes, healthy fats such as nuts and avocados, and a variety of colorful fruits and vegetables. These foods provide not only energy but essential vitamins and minerals.</p>
+          <p>Learning how to manage calorie intake and expenditure is a key component of maintaining a healthy weight, boosting energy levels, and reducing the risk of chronic diseases such as diabetes, heart disease, and obesity. With informed choices, you can nourish your body effectively.</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide slide2">
+        <div class="content-box">
+          <h1>CALORIE CALCULATOR</h1>
+          <p>Every individual has different energy needs depending on their age, weight, gender, lifestyle, and goals. Our calorie calculator uses scientifically backed formulas to estimate your daily caloric needs, whether your goal is weight loss, muscle gain, or maintenance.</p>
+          <p>By entering your basic information and selecting your activity level, you can get a clear idea of how many calories your body requires. This empowers you to create meal plans and fitness routines that align with your objectives.</p>
+          <p>Regularly tracking your calorie intake helps you make better food decisions, monitor progress over time, and adjust your diet as needed. It’s a powerful way to take control of your health and see tangible results.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow Button -->
+    <button id="arrow-button">➡️</button>
+  </div>
+
+  <script>
+    const slides = document.getElementById("slides");
+    const arrowButton = document.getElementById("arrow-button");
+    let currentIndex = 0;
+
+    arrowButton.addEventListener("click", () => {
+      currentIndex = currentIndex === 0 ? 1 : 0;
+      slides.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      arrowButton.textContent = currentIndex === 0 ? "➡️" : "⬅️";
+    });
+  </script>
+
+</body>
+</html>

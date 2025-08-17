@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CALORIE CALCULATOR</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: url('Calculator.png') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      padding: 100px 20px 20px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+    }
+
+    .navbar-title {
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: #000;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 15px 20px;
+        gap: 15px;
+      }
+
+      .navbar-title {
+        align-self: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+      }
+
+      .nav-links a {
+        width: 100%;
+      }
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      margin-top: 40px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    label, input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    input {
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      padding: 10px;
+      margin: 5px;
+      width: 100px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit {
+      background-color: green;
+      color: white;
+    }
+
+    .clear {
+      background-color: red;
+      color: white;
+    }
+  </style>
+
+  <script>
+    function calculateCalories(event) {
+      event.preventDefault();
+      let height = document.getElementById('height').value;
+      let weight = document.getElementById('weight').value;
+      let resultField = document.getElementById('result');
+
+      let result = (10 * weight) + (6.25 * height) - 5;
+      resultField.value = "Estimated Calories: " + result.toFixed(2);
+    }
+
+    function clearFields() {
+      document.getElementById('height').value = '';
+      document.getElementById('weight').value = '';
+      document.getElementById('result').value = '';
+    }
+  </script>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="navbar-title">CALORIE CALCULATOR</div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="diet.html">Diet</a>
+      <a href="#">Calculator</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>CALORIE CALCULATOR</h1>
+    <form onsubmit="calculateCalories(event)">
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" placeholder="Enter height in cm" required>
+
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" placeholder="Enter weight in kg" required>
+
+      <button class="submit" type="submit">Submit</button>
+      <button class="clear" type="button" onclick="clearFields()">Clear</button>
+
+      <label for="result">Result:</label>
+      <input type="text" id="result" readonly>
+    </form>
+  </div>
+</body>
+</html>
